@@ -2,6 +2,8 @@ import express, { NextFunction, Request, Response } from "express";
 import logger from "morgan";
 import cors from "cors";
 import "dotenv/config";
+import boardsRouter from "./modules/board/routes";
+import cardsRouter from "./modules/card/routes";
 // import boardsRouter from "./routes/api/boards";
 // import cardsRouter from "./routes/api/cards";
 
@@ -28,8 +30,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// app.use("/boards", boardsRouter);
-// app.use("/cards", cardsRouter);
+app.use("/boards", boardsRouter);
+app.use("/cards", cardsRouter);
 
 app.use((req, res: Response) => {
   res.status(404).json({ message: "Not found" });
