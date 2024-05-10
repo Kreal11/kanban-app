@@ -1,20 +1,19 @@
 import Card from "../model";
 import handleCustomError from "../../../middlewares/helpers/handleCustomError";
-import { ICard } from "./types";
+import { ICard } from "../model/types";
 
 export const getAllCards = async (ownerId: string): Promise<ICard[]> => {
   const data = await Card.find({ owner: ownerId });
+
   if (!data) {
-    throw handleCustomError(404, `Something went wrong`);
+    throw handleCustomError(404, `Cards were not found`);
   }
   return data;
 };
 
-export const getCardById = async (id: string): Promise<ICard> => {
+export const getById = async (id: string): Promise<ICard | null> => {
   const card = await Card.findById(id);
-  if (!card) {
-    throw handleCustomError(404, `Card with ID ${id} not found`);
-  }
+
   return card;
 };
 
@@ -26,53 +25,48 @@ export const addCard = async (cardData: any): Promise<ICard> => {
   return createdCard;
 };
 
-export const deleteCard = async (id: string): Promise<ICard> => {
+export const deleteCard = async (id: string): Promise<ICard | null> => {
   const deletedCard = await Card.findByIdAndDelete(id);
-  if (!deletedCard) {
-    throw handleCustomError(404, `Card with ID ${id} not found`);
-  }
+
   return deletedCard;
 };
 
-export const updateCard = async (id: string, cardData: any): Promise<ICard> => {
+export const updateCard = async (
+  id: string,
+  cardData: any
+): Promise<ICard | null> => {
   const updatedCard = await Card.findByIdAndUpdate(id, cardData, {
     new: true,
   });
-  if (!updatedCard) {
-    throw handleCustomError(404, `Card with ID ${id} not found`);
-  }
+
   return updatedCard;
 };
 
 export const updateCardWorkStatus = async (
   id: string,
   cardData: any
-): Promise<ICard> => {
+): Promise<ICard | null> => {
   const updatedCardWorkStatus = await Card.findByIdAndUpdate(id, cardData, {
     new: true,
   });
-  if (!updatedCardWorkStatus) {
-    throw handleCustomError(404, `Card with ID ${id} not found`);
-  }
+
   return updatedCardWorkStatus;
 };
 
 export const updateCardOrder = async (
   id: string,
   cardData: any
-): Promise<ICard> => {
+): Promise<ICard | null> => {
   const updatedCardOrder = await Card.findByIdAndUpdate(id, cardData, {
     new: true,
   });
-  if (!updatedCardOrder) {
-    throw handleCustomError(404, `Card with ID ${id} not found`);
-  }
+
   return updatedCardOrder;
 };
 
 export default {
   getAllCards,
-  getCardById,
+  getById,
   addCard,
   deleteCard,
   updateCard,

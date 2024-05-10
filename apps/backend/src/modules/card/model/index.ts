@@ -1,8 +1,8 @@
 import { Schema, model } from "mongoose";
 import handleMongooseError from "../../../middlewares/helpers/handleMongooseError";
-import { Card } from "./types";
+import { ICard } from "./types";
 
-const cardSchema = new Schema<Card>(
+const cardSchema = new Schema<ICard>(
   {
     title: {
       type: String,

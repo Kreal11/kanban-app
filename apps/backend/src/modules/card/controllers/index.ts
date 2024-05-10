@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import cardService from "../services/index";
+import cardService from "../services";
 import { handleRequestError } from "../../../middlewares/decorators/handleRequestError";
 
 export const getAllCards = async (
@@ -16,7 +16,7 @@ export const getCardById = async (
   res: Response
 ): Promise<Response> => {
   const { id } = req.params;
-  const card = await cardService.getCardById(id);
+  const card = await cardService.getById(id);
   return res.json(card);
 };
 

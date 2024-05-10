@@ -1,8 +1,7 @@
 import express from "express";
 
-import boardsController from "../controllers/index";
+import boardsController from "../controllers";
 import { checkIsExist } from "../../../middlewares/decorators/checkIsExisted";
-import validateBody from "../../../middlewares/decorators/validateBody";
 
 const boardsRouter = express.Router();
 
