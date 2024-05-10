@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import boardService from "../services/index";
+import boardService from "../services";
 import { handleRequestError } from "../../../middlewares/decorators/handleRequestError";
 
 export const getAllBoards = async (

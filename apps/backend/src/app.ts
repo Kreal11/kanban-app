@@ -4,8 +4,6 @@ import cors from "cors";
 import "dotenv/config";
 import boardsRouter from "./modules/board/routes";
 import cardsRouter from "./modules/card/routes";
-// import boardsRouter from "./routes/api/boards";
-// import cardsRouter from "./routes/api/cards";
 
 interface CustomError extends Error {
   status?: number;
@@ -37,9 +35,9 @@ app.use((req, res: Response) => {
   res.status(404).json({ message: "Not found" });
 });
 
-// app.use((err: CustomError, req: Request, res: Response) => {
-//   const { status = 500, message = "Server error" } = err;
-//   res.status(status).json({ message, err });
-// });
+app.use((err: CustomError, req: Request, res: Response) => {
+  const { status = 500, message = "Server error" } = err;
+  res.status(status).json({ message, err });
+});
 
 export default app;

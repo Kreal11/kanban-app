@@ -34,7 +34,9 @@ const getById = async (id: string) => {
 
 const addBoard = async (boardData: any) => {
   const createdBoard = await Board.create({ ...boardData });
-
+  if (!createdBoard) {
+    throw handleCustomError(404, `Board was not created`);
+  }
   return createdBoard;
 };
 
