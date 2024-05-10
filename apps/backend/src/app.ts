@@ -37,11 +37,9 @@ app.use((req, res: Response) => {
   res.status(404).json({ message: "Not found" });
 });
 
-app.use((err: CustomError, req: Request, res: Response) => {
-  const { status = 500, message = "Server error" } = err;
-  res.status(status).json({ message, err });
-});
+// app.use((err: CustomError, req: Request, res: Response) => {
+//   const { status = 500, message = "Server error" } = err;
+//   res.status(status).json({ message, err });
+// });
 
 export default app;
-
-// ycqTVHFlSH0GHZpp

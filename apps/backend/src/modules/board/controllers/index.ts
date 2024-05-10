@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import boardService from "../services/index";
 import { handleRequestError } from "../../../middlewares/decorators/handleRequestError";
 
-
 export const getAllBoards = async (
   req: Request,
   res: Response
@@ -16,7 +15,7 @@ export const getBoardById = async (
   res: Response
 ): Promise<Response> => {
   const { id } = req.params;
-  const result = await boardService.getBoardById(id);
+  const result = await boardService.getById(id);
   return res.json(...result);
 };
 

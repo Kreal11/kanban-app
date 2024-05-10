@@ -35,7 +35,7 @@ export const deleteCard = async (
 ): Promise<Response> => {
   const { id } = req.query;
   if (typeof id !== "string") {
-    return res.status(400).json({ message: "ID is invalid" });
+    return res.status(400).json({ message: `Card with ID ${id} not found` });
   }
   const deletedCard = await cardService.deleteCard(id);
   return res.json(deletedCard);
