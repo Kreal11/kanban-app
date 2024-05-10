@@ -1,4 +1,4 @@
-import Card from "../model/cardSchema";
+import Card from "../model";
 import handleCustomError from "../../../middlewares/helpers/handleCustomError";
 import { ICard } from "./types";
 
