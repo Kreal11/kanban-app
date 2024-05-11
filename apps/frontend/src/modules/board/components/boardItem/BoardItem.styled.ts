@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../../../shared/theme/colors";
 
 export const ButtonsWrapper = styled.div`
   display: flex;
@@ -10,6 +11,7 @@ export const ButtonsWrapper = styled.div`
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    background-color: ${colors.lightblue};
     gap: 6px;
     border-radius: 8px;
     border: none;
@@ -17,7 +19,8 @@ export const ButtonsWrapper = styled.div`
     transition: background-color 0.4s ease-in-out;
 
     &:hover {
-      background-color: darkslategray;
+      color: ${colors.white};
+      background-color: ${colors.darkcyan};
       svg {
         fill: white;
       }
@@ -39,7 +42,7 @@ export const BoardLi = styled.li`
   flex-direction: column;
   justify-content: space-between;
   border-radius: 8px;
-  background-color: lightsteelblue;
+  background-color: ${colors.lightcoral};
   height: 250px;
   max-width: 200px;
   overflow: auto;
@@ -59,13 +62,14 @@ export const BoardInfoWrapper = styled.div`
     flex-direction: column;
     gap: 10px;
     cursor: pointer;
-    background-color: gray;
+    background-color: ${colors.lightblue};
     border-radius: 8px;
-    transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
     margin-bottom: 14px;
 
     &:hover {
-      background-color: darkslategray;
+      color: ${colors.white};
+      background-color: ${colors.darkcyan};
     }
   }
 `;
