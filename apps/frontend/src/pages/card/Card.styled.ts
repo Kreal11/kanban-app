@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../shared/theme/colors";
 
 export const CardPageInfoWrapper = styled.div`
   display: flex;
@@ -26,11 +27,14 @@ export const CardPageInfoWrapper = styled.div`
     border-radius: 8px;
     border: none;
     font-size: 16px;
+    color: ${colors.black};
+    background-color: ${colors.lightblue};
 
-    transition: background-color 0.4s ease-in-out;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 
     &:hover {
-      background-color: darkslategray;
+      color: ${colors.white};
+      background-color: ${colors.darkcyan};
     }
   }
 `;

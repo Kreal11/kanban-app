@@ -1,3 +1,3 @@
-export interface SvgWrapperProps {
+export interface SvgProps {
   id: string;
 }

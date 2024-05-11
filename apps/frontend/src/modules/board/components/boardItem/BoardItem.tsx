@@ -6,8 +6,8 @@ import { useModal } from "../../../../shared/hooks/useModal";
 import Modal from "../../../../shared/components/modal/Modal";
 import UpdateBoardForm from "../updateBoardForm/UpdateBoardForm";
 import { toast } from "react-toastify";
-import editImg from "../../../../assets/images/edit.png";
-import deleteImg from "../../../../assets/images/delete.png";
+
+import Svg from "../../../../shared/components/svg/SvgWrapper";
 
 interface BoardItemProps {
   title: string;
@@ -47,10 +47,10 @@ const BoardItem = ({ title, theme, _id }: BoardItemProps) => {
         </BoardInfoWrapper>
         <ButtonsWrapper>
           <button onClick={openModal}>
-            <img src={editImg} alt="Edit mark" />
+            <Svg id="edit" />
           </button>
           <button onClick={() => hanldeDeleteBoard(_id)}>
-            <img src={deleteImg} alt="Delete bin" />
+            <Svg id="delete" />
           </button>
         </ButtonsWrapper>
       </BoardLi>

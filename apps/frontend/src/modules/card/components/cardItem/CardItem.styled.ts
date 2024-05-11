@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../../../shared/theme/colors";
 
 export const CardLi = styled.li`
   padding: 6px;
@@ -7,21 +8,21 @@ export const CardLi = styled.li`
   flex-direction: column;
   justify-content: space-between;
   height: 160px;
-  background-color: white;
-  color: black;
+  background-color: ${colors.white};
+  color: ${colors.black};
 `;
 
 export const CardInfoWrapper = styled.div`
   text-align: start;
   padding: 4px;
   border-radius: 8px;
-  border: 1px solid black;
+  border: 1px solid ${colors.black};
   cursor: pointer;
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 
   &:hover {
-    background-color: darkslategrey;
-    color: white;
+    background-color: ${colors.darkcyan};
+    color: ${colors.white};
   }
 
   h3 {

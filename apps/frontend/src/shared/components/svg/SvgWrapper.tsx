@@ -1,9 +1,9 @@
 import { FC } from "react";
 
-import { SvgWrapperProps } from "./types";
+import { SvgProps } from "./types";
 import sprite from "/sprite.svg";
 
-const SvgWrapper: FC<SvgWrapperProps> = ({ id }) => {
+const Svg: FC<SvgProps> = ({ id }) => {
   return (
     <svg>
       <use xlinkHref={`${sprite}#${id}`}></use>
@@ -11,4 +11,4 @@ const SvgWrapper: FC<SvgWrapperProps> = ({ id }) => {
   );
 };
 
-export default SvgWrapper;
+export default Svg;

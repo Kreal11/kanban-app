@@ -1,3 +1,4 @@
+import { colors } from "./../../shared/theme/colors";
 import styled from "styled-components";
 
 export const BoardsWrapper = styled.div`
@@ -24,27 +25,29 @@ export const AddBoardWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
-  background-color: grey;
+  background-color: ${colors.white};
   width: 200px;
   height: 250px;
   cursor: pointer;
   border-radius: 8px;
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 
   &:hover {
-    background-color: darkslategrey;
-    img {
-      filter: brightness(0) invert(1);
+    color: ${colors.white};
+    background-color: ${colors.darkcyan};
+    svg {
+      fill: white;
     }
   }
 
-  img {
+  svg {
+    fill: black;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 60px;
-    transition: filter 0.4s ease-in-out;
+    transition: fill 0.4s ease-in-out;
   }
 
   p {

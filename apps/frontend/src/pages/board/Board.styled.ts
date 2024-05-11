@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../shared/theme/colors";
 
 type ToDo = {
   $toDo?: string;
@@ -14,11 +15,14 @@ export const HomeButton = styled.button`
   border-radius: 8px;
   border: none;
   font-size: 16px;
+  color: ${colors.black};
+  background-color: ${colors.lightblue};
 
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
 
   &:hover {
-    background-color: darkslategray;
+    color: ${colors.white};
+    background-color: ${colors.darkcyan};
   }
 `;
 
@@ -52,7 +56,7 @@ export const CardList = styled.ul<ToDo>`
   flex-direction: column;
   gap: 20px;
   padding: 10px;
-  background-color: grey;
+  background-color: ${colors.lightblue};
   width: 210px;
   border-radius: 8px;
   min-height: 700px;
@@ -69,20 +73,22 @@ export const CardPlusImgWrapper = styled.div`
   padding: 61px 80px;
   width: 50px;
   height: 50px;
-  transition: background-color 0.4s ease-in-out, filter 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
   position: absolute;
   top: 76px;
   left: 11.5px;
 
-  img {
+  svg {
+    fill: ${colors.black};
     width: 50px;
     height: 50px;
+    transition: fill 0.4s ease-in-out;
   }
 
   &:hover {
-    background-color: darkslategrey;
-    img {
-      filter: brightness(0) invert(1);
+    background-color: ${colors.darkcyan};
+    svg {
+      fill: ${colors.white};
     }
   }
 `;

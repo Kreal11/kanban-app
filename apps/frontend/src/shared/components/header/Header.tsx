@@ -12,8 +12,8 @@ const Header = () => {
   const { register, handleSubmit, reset } = useForm<Input>();
 
   const submit: SubmitHandler<Input> = (data): void => {
-    reset();
     navigate(`boards/${data.id}`);
+    reset();
   };
 
   return (
