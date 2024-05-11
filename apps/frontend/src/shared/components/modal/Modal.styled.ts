@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../../styles/breakpoints";
+import { colors } from "../../theme/colors";
 
 const { tablet } = breakpoints;
 
@@ -9,7 +10,7 @@ export const StyledWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(23, 23, 23, 0.6);
+  background-color: ${colors.modalBackdrop};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +19,7 @@ export const StyledWrapper = styled.div`
 
 export const ContentWrapper = styled.div`
   position: relative;
-  background-color: #1c1c1c;
+  background-color: ${colors.lightgray};
   border: 1px solid rgba(244, 244, 244, 0.3);
   overflow: hidden;
   border-radius: 20px;
@@ -30,18 +31,19 @@ export const StyledCloseButton = styled.button`
   padding: 5px;
   width: 18px;
   height: 18px;
+  color: ${colors.black};
   background-color: transparent;
+  font-size: 16px;
 
   position: absolute;
 
   top: 14px;
-  right: 20px;
+  right: 40px;
   &:hover {
     transform: scale(1.2);
   }
 
   @media screen and (min-width: ${tablet}) {
-    right: 28px;
     width: 24px;
     height: 24px;
   }

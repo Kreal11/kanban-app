@@ -5,4 +5,5 @@ export const colors = {
   lightcoral: "lightcoral",
   darkcyan: "darkcyan",
   lightblue: "lightblue",
+  modalBackdrop: " rgba(23, 23, 23, 0.6)",
 };
