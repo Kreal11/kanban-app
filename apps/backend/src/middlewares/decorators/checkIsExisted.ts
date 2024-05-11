@@ -17,7 +17,7 @@ export const checkIsExist =
     next: NextFunction
   ): Promise<void | Response> => {
     const { id } = req[idSource];
-    console.log(id);
+
     try {
       const service = services[serviceName];
 

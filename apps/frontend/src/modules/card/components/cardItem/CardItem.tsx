@@ -1,15 +1,15 @@
-import { ButtonsWrapper } from "../boardItem/BoardItem.styled";
+import { ButtonsWrapper } from "../../../board/components/boardItem/BoardItem.styled";
 import { CardInfoWrapper, CardLi } from "./CardItem.styled";
-import { useAppDispatch } from "../../redux/hooks";
-import { deleteCardThunk } from "../../redux/card/operations";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { deleteCardThunk } from "../../../../redux/card/operations";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-import { useModal } from "../../hooks/useModal";
-import Modal from "../modal/Modal";
+import { useModal } from "../../../../shared/hooks/useModal";
+import Modal from "../../../../shared/components/modal/Modal";
 import UpdateCardForm from "../updateCardForm/UpdateCardForm";
 import { Draggable } from "react-beautiful-dnd";
-import editImg from "../../assets/images/edit.png";
-import deleteImg from "../../assets/images/delete.png";
+import editImg from "../../../../assets/images/edit.png";
+import deleteImg from "../../../../assets/images/delete.png";
 
 interface CardItemProps {
   _id: string;
