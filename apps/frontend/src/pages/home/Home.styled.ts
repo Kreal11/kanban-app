@@ -33,18 +33,19 @@ export const AddBoardWrapper = styled.div`
 
   &:hover {
     background-color: darkslategrey;
-    img {
-      filter: brightness(0) invert(1);
+    svg {
+      fill: white;
     }
   }
 
-  img {
+  svg {
+    fill: black;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 60px;
-    transition: filter 0.4s ease-in-out;
+    transition: fill 0.4s ease-in-out;
   }
 
   p {

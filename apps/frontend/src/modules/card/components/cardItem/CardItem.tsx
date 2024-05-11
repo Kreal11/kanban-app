@@ -8,8 +8,8 @@ import { useModal } from "../../../../shared/hooks/useModal";
 import Modal from "../../../../shared/components/modal/Modal";
 import UpdateCardForm from "../updateCardForm/UpdateCardForm";
 import { Draggable } from "react-beautiful-dnd";
-import editImg from "../../../../assets/images/edit.png";
-import deleteImg from "../../../../assets/images/delete.png";
+
+import Svg from "../../../../shared/components/svg/SvgWrapper";
 
 interface CardItemProps {
   _id: string;
@@ -53,10 +53,10 @@ const CardItem = ({ title, description, _id, index }: CardItemProps) => {
             </CardInfoWrapper>
             <ButtonsWrapper>
               <button onClick={openModal}>
-                <img src={editImg} alt="Edit mark" />
+                <Svg id="edit" />
               </button>
               <button onClick={() => handleDeleteCard(_id)}>
-                <img src={deleteImg} alt="Delete bin" />
+                <Svg id="delete" />
               </button>
             </ButtonsWrapper>
           </CardLi>

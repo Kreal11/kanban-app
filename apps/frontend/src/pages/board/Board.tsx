@@ -27,7 +27,8 @@ import {
   updateCardWorkStatusThunk,
 } from "../../redux/card/operations";
 import { Card } from "../../redux/board/types";
-import plusImg from "../../assets/images/plus.png";
+
+import Svg from "../../shared/components/svg/SvgWrapper";
 
 const Board = () => {
   const { id } = useParams();
@@ -284,7 +285,7 @@ const Board = () => {
                   <CardListWrapper>
                     <h2>To Do</h2>
                     <CardPlusImgWrapper onClick={openModal}>
-                      <img src={plusImg} alt="Plus" />
+                      <Svg id="plus" />
                     </CardPlusImgWrapper>
                     <CardList
                       $toDo="toDo"

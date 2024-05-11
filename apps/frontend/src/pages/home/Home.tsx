@@ -14,7 +14,8 @@ import { useModal } from "../../shared/hooks/useModal";
 import Modal from "../../shared/components/modal/Modal";
 import AddBoardForm from "../../modules/board/components/addBoardForm/AddBoardForm";
 import { toast } from "react-toastify";
-import plusImg from "../../assets/images/plus.png";
+
+import Svg from "../../shared/components/svg/SvgWrapper";
 
 const Home = () => {
   const boards = useSelector(selectGetBoards);
@@ -42,7 +43,7 @@ const Home = () => {
             <NoBoardsPlugWrapper>
               <p>There are no boards yet. Add new board to see it there</p>
               <AddBoardWrapper onClick={openModal}>
-                <img src={plusImg} alt="Plus" />
+                <Svg id="plus" />
                 <p>Add board</p>
               </AddBoardWrapper>
             </NoBoardsPlugWrapper>
@@ -51,7 +52,7 @@ const Home = () => {
             <React.Fragment key={board._id}>
               {index === 0 && (
                 <AddBoardWrapper onClick={openModal}>
-                  <img src={plusImg} alt="Plus" />
+                  <Svg id="plus" />
                   <p>Add board</p>
                 </AddBoardWrapper>
               )}

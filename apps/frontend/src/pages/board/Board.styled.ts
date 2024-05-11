@@ -69,20 +69,22 @@ export const CardPlusImgWrapper = styled.div`
   padding: 61px 80px;
   width: 50px;
   height: 50px;
-  transition: background-color 0.4s ease-in-out, filter 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
   position: absolute;
   top: 76px;
   left: 11.5px;
 
-  img {
+  svg {
+    fill: black;
     width: 50px;
     height: 50px;
+    transition: fill 0.4s ease-in-out;
   }
 
   &:hover {
     background-color: darkslategrey;
-    img {
-      filter: brightness(0) invert(1);
+    svg {
+      fill: white;
     }
   }
 `;
