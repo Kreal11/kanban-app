@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AddForm, FormWrapper } from "./AddBoardForm.styled";
-import { useAppDispatch } from "../../redux/hooks";
-import { addBoardThunk } from "../../redux/board/operations";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { addBoardThunk } from "../../../../redux/board/operations";
 import { FC } from "react";
 import { toast } from "react-toastify";
 

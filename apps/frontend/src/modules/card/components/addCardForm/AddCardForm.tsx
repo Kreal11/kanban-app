@@ -1,10 +1,13 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch } from "../../../../redux/hooks";
 import { FC } from "react";
 import { toast } from "react-toastify";
-import { addCardThunk } from "../../redux/card/operations";
+import { addCardThunk } from "../../../../redux/card/operations";
 import { useParams } from "react-router";
-import { AddForm, FormWrapper } from "../addBoardFrom/AddBoardForm.styled";
+import {
+  AddForm,
+  FormWrapper,
+} from "../../../board/components/addBoardForm/AddBoardForm.styled";
 
 interface Inputs {
   title: string;

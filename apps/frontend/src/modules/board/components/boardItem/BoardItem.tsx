@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router";
 import { BoardInfoWrapper, BoardLi, ButtonsWrapper } from "./BoardItem.styled";
-import { useAppDispatch } from "../../redux/hooks";
-import { deleteBoardThunk } from "../../redux/board/operations";
-import { useModal } from "../../hooks/useModal";
-import Modal from "../modal/Modal";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { deleteBoardThunk } from "../../../../redux/board/operations";
+import { useModal } from "../../../../shared/hooks/useModal";
+import Modal from "../../../../shared/components/modal/Modal";
 import UpdateBoardForm from "../updateBoardForm/UpdateBoardForm";
 import { toast } from "react-toastify";
-import editImg from "../../assets/images/edit.png";
-import deleteImg from "../../assets/images/delete.png";
+import editImg from "../../../../assets/images/edit.png";
+import deleteImg from "../../../../assets/images/delete.png";
 
 interface BoardItemProps {
   title: string;

@@ -3,16 +3,16 @@ import { selectGetBoards, selectIsLoading } from "../../redux/board/selectors";
 import React, { useEffect } from "react";
 import { useAppDispatch } from "../../redux/hooks";
 import { getAllBoardsThunk } from "../../redux/board/operations";
-import BoardItem from "../../components/boardItem/BoardItem";
+import BoardItem from "../../modules/board/components/boardItem/BoardItem";
 import {
   AddBoardWrapper,
   BoardsList,
   BoardsWrapper,
   NoBoardsPlugWrapper,
 } from "./Home.styled";
-import { useModal } from "../../hooks/useModal";
-import Modal from "../../components/modal/Modal";
-import AddBoardForm from "../../components/addBoardFrom/AddBoardForm";
+import { useModal } from "../../shared/hooks/useModal";
+import Modal from "../../shared/components/modal/Modal";
+import AddBoardForm from "../../modules/board/components/addBoardForm/AddBoardForm";
 import { toast } from "react-toastify";
 import plusImg from "../../assets/images/plus.png";
 

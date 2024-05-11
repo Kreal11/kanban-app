@@ -17,10 +17,10 @@ import {
   CardPlusImgWrapper,
   HomeButton,
 } from "./Board.styled";
-import CardItem from "../../components/cardItem/CardItem";
-import Modal from "../../components/modal/Modal";
-import AddCardForm from "../../components/addCardForm/AddCardForm";
-import { useModal } from "../../hooks/useModal";
+import CardItem from "../../modules/card/components/cardItem/CardItem";
+import Modal from "../../shared/components/modal/Modal";
+import AddCardForm from "../../modules/card/components/addCardForm/AddCardForm";
+import { useModal } from "../../shared/hooks/useModal";
 import { DragDropContext, DropResult, Droppable } from "react-beautiful-dnd";
 import {
   updateCardOrderThunk,
@@ -45,6 +45,17 @@ const Board = () => {
   const [done, setDone] = useState<Card[]>([]);
 
   useEffect(() => {
+    dispatch(getBoardByIdThunk(id))
+      .unwrap()
+      .then(() => {
+        toast.success("Board info was loaded successfully!");
+      })
+      .catch(() => {
+        toast.warning("Oops, something went wrong! Try again, please!");
+      });
+  }, [dispatch, id]);
+
+  useEffect(() => {
     if (cards && !isLoading) {
       const toDoCards = cards.filter((card) => card.workStatus === "toDo");
       const inProgressCards = cards.filter(
@@ -63,17 +74,6 @@ const Board = () => {
       setDone(sortedDone);
     }
   }, [cards, isLoading]);
-
-  useEffect(() => {
-    dispatch(getBoardByIdThunk(id))
-      .unwrap()
-      .then(() => {
-        toast.success("Board info was loaded successfully!");
-      })
-      .catch(() => {
-        toast.warning("Oops, something went wrong! Try again, please!");
-      });
-  }, [dispatch, id]);
 
   const handleGoHome = () => {
     navigate("/");
@@ -294,7 +294,7 @@ const Board = () => {
                       {toDo?.map((card, index) => (
                         <CardItem key={card._id} {...card} index={index} />
                       ))}
-                      {!cards.length && (
+                      {!toDo.length && (
                         <p>
                           There are no cards yet. Add new card to see it in the
                           list
