@@ -3,22 +3,6 @@ import handleCustomError from "../../../middlewares/helpers/handleCustomError";
 import { ICard } from "../model/types";
 import mongoose from "mongoose";
 
-export const getAllCards = async (ownerId: string): Promise<ICard[]> => {
-  const data = await Card.find({ owner: ownerId });
-
-  if (!ownerId || !mongoose.Types.ObjectId.isValid(ownerId)) {
-    throw handleCustomError(
-      400,
-      `Board (owner) with ID ${ownerId} was not found`
-    );
-  }
-
-  if (!data) {
-    throw handleCustomError(404, `Cards were not found`);
-  }
-  return data;
-};
-
 export const getById = async (id: string): Promise<ICard | null> => {
   const card = await Card.findById(id);
 
@@ -73,7 +57,6 @@ export const updateCardOrder = async (
 };
 
 export default {
-  getAllCards,
   getById,
   addCard,
   deleteCard,

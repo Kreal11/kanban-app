@@ -2,15 +2,6 @@ import { Request, Response } from "express";
 import cardService from "../services";
 import { handleRequestError } from "../../../middlewares/decorators/handleRequestError";
 
-export const getAllCards = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
-  const { id } = req.params;
-  const data = await cardService.getAllCards(id);
-  return res.json({ data });
-};
-
 export const getCardById = async (
   req: Request,
   res: Response
@@ -75,7 +66,6 @@ export const updateCardOrder = async (
 };
 
 export default {
-  getAllCards: handleRequestError(getAllCards),
   getCardById: handleRequestError(getCardById),
   addCard: handleRequestError(addCard),
   deleteCard: handleRequestError(deleteCard),
