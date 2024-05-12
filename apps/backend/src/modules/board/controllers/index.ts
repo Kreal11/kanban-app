@@ -6,7 +6,10 @@ export const getAllBoards = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const data = await boardService.getAllBoards();
+  const page = parseInt(req.query.page as string) || 1;
+  const limit = parseInt(req.query.limit as string) || 10;
+
+  const data = await boardService.getAllBoards(page, limit);
   return res.json({ data });
 };
 
