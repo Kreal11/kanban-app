@@ -24,7 +24,8 @@ const initialState: BoardsState = {
     updatedAt: "",
     cards: [],
   },
-
+  hasNextPage: false,
+  totalBoardsCount: 0,
   isLoading: false,
   error: null,
 };
@@ -36,7 +37,14 @@ const boardsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllBoardsThunk.fulfilled, (state, { payload }) => {
-        state.boards = payload;
+        if (state.boards.length < state.totalBoardsCount) {
+          state.boards = [...state.boards, ...payload.boards];
+        } else {
+          state.boards = payload.boards;
+        }
+
+        state.hasNextPage = payload.hasNextPage;
+        state.totalBoardsCount = payload.totalBoardsCount;
 
         state.isLoading = false;
         state.error = null;
@@ -50,7 +58,9 @@ const boardsSlice = createSlice({
       .addCase(
         addBoardThunk.fulfilled,
         (state, { payload }: PayloadAction<Board>) => {
-          state.boards = [...state.boards, payload];
+          if (!state.hasNextPage) {
+            state.boards = [...state.boards, payload];
+          }
 
           state.isLoading = false;
           state.error = null;

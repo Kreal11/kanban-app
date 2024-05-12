@@ -1,6 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectGetBoards, selectIsLoading } from "../../redux/board/selectors";
-import React, { useEffect } from "react";
+import {
+  selectGetBoards,
+  selectHasNextPage,
+  selectIsLoading,
+} from "../../redux/board/selectors";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "../../redux/hooks";
 import { getAllBoardsThunk } from "../../redux/board/operations";
 import BoardItem from "../../modules/board/components/boardItem/BoardItem";
@@ -18,13 +22,23 @@ import { toast } from "react-toastify";
 import Svg from "../../shared/components/svg/SvgWrapper";
 
 const Home = () => {
-  const boards = useSelector(selectGetBoards);
   const dispatch = useAppDispatch();
   const { isOpen, openModal, closeModal } = useModal();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loadedPages, setLoadedPages] = useState([1]);
+
+  const boards = useSelector(selectGetBoards);
   const isLoading = useSelector(selectIsLoading);
+  const hasNextPage = useSelector(selectHasNextPage);
 
   useEffect(() => {
-    dispatch(getAllBoardsThunk())
+    const params = {
+      page: currentPage,
+      limit: 10,
+    };
+
+    dispatch(getAllBoardsThunk(params))
       .unwrap()
       .then(() => {
         toast.success("Boards were loaded successfully!");
@@ -32,7 +46,15 @@ const Home = () => {
       .catch(() => {
         toast.warning("Oops, something went wrong! Try again, please!");
       });
-  }, [dispatch]);
+  }, [dispatch, currentPage]);
+
+  const handleLoadMore = () => {
+    const nextPage = currentPage + 1;
+    if (!loadedPages.includes(nextPage)) {
+      setCurrentPage(nextPage);
+      setLoadedPages([...loadedPages, nextPage]);
+    }
+  };
 
   return (
     <BoardsWrapper>
@@ -60,6 +82,9 @@ const Home = () => {
             </React.Fragment>
           ))}
         </BoardsList>
+      )}
+      {hasNextPage && !isLoading && (
+        <button onClick={handleLoadMore}>Load more</button>
       )}
       {isOpen && (
         <Modal closeModal={closeModal}>

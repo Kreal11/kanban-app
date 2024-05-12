@@ -21,6 +21,8 @@ export interface Board {
 export interface BoardsState {
   boards: Board[] | [];
   board: Board;
+  hasNextPage: boolean;
+  totalBoardsCount: number;
   isLoading: boolean;
   error: string | null;
 }
@@ -34,4 +36,9 @@ export interface UpdateBoardBody {
   title: string;
   theme: string;
   id: string;
+}
+
+export interface Params {
+  page: number;
+  limit: number;
 }
