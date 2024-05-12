@@ -3,12 +3,22 @@ import handleCustomError from "../../../middlewares/helpers/handleCustomError";
 import mongoose from "mongoose";
 
 const getAllBoards = async (page = 1, limit = 10) => {
+  const totalBoardsCount = await Board.countDocuments();
+
+  if (!totalBoardsCount) {
+    throw handleCustomError(404, `There are no boards in database yet`);
+  }
+
   const skip = (page - 1) * limit;
+
   const boards = await Board.find().skip(skip).limit(limit);
+  const hasNextPage = totalBoardsCount > skip + boards.length;
+
   if (!boards || !boards.length) {
     throw handleCustomError(404, `Boards were not found`);
   }
-  return boards;
+
+  return { boards, hasNextPage };
 };
 
 const getById = async (id: string) => {
