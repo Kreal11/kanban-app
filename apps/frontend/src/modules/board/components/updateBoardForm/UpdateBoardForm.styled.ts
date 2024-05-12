@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "../../../../shared/theme/colors";
 
 export const FormWrapper = styled.div`
   text-align: center;
@@ -15,10 +16,14 @@ export const FormWrapper = styled.div`
     border-radius: 8px;
     border: none;
     padding: 8px;
+    font-size: 20px;
+    color: ${colors.black};
+    background-color: ${colors.lightblue};
     transition: background-color 0.4s ease-in-out;
 
     &:hover {
-      background-color: darkslategray;
+      color: ${colors.white};
+      background-color: ${colors.darkcyan};
     }
   }
 `;
@@ -36,6 +41,8 @@ export const UpdateForm = styled.form`
     border: none;
     outline: none;
     font-size: 20px;
+    color: ${colors.black};
+    background-color: ${colors.lightblue};
   }
 
   textarea {
@@ -49,5 +56,8 @@ export const UpdateForm = styled.form`
     font-family: "Arial";
     max-width: 283.5px;
     min-height: 100px;
+    font-size: 20px;
+    color: ${colors.black};
+    background-color: ${colors.lightblue};
   }
 `;

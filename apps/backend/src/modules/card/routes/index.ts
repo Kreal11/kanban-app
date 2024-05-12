@@ -5,7 +5,6 @@ import { checkIsExist } from "../../../middlewares/decorators/checkIsExisted";
 
 const cardsRouter = express.Router();
 
-cardsRouter.get("/", cardsController.getAllCards);
 cardsRouter.get(
   "/:id",
   checkIsExist("card", "params"),
