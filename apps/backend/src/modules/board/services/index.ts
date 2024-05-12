@@ -2,12 +2,13 @@ import Board from "../model";
 import handleCustomError from "../../../middlewares/helpers/handleCustomError";
 import mongoose from "mongoose";
 
-const getAllBoards = async () => {
-  const data = await Board.find();
-  if (!data) {
+const getAllBoards = async (page = 1, limit = 10) => {
+  const skip = (page - 1) * limit;
+  const boards = await Board.find().skip(skip).limit(limit);
+  if (!boards || !boards.length) {
     throw handleCustomError(404, `Boards were not found`);
   }
-  return data;
+  return boards;
 };
 
 const getById = async (id: string) => {

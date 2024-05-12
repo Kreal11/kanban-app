@@ -1,7 +1,6 @@
 import Card from "../model";
 import handleCustomError from "../../../middlewares/helpers/handleCustomError";
 import { ICard } from "../model/types";
-import mongoose from "mongoose";
 
 export const getById = async (id: string): Promise<ICard | null> => {
   const card = await Card.findById(id);
