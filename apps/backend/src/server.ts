@@ -1,13 +1,12 @@
 import app from "./app";
 import mongoose from "mongoose";
 import "dotenv/config";
-import envsConfig from "./conf/envConfs";
+import envsConfig from "./config/envConfigs";
+import { checkDbHost } from "./config/envChecks/dbHostCheck";
 
 mongoose.set("strictQuery", true);
-if (!envsConfig.dbHost) {
-  console.error("No dbHost in envConfs");
-  process.exit(1);
-}
+
+checkDbHost();
 
 mongoose
   .connect(envsConfig.dbHost)

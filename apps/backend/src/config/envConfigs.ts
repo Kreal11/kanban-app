@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
 
 dotenv.config();
-const { DB_HOST, PORT } = process.env;
+const { DB_HOST = "", PORT = "" } = process.env;
 
 interface EnvsConfig {
-  port?: string;
-  dbHost?: string;
+  port: string;
+  dbHost: string;
 }
 
 const envsConfig: EnvsConfig = {
