@@ -1,12 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { kanbanApi } from "../instance";
-import { AddBoardBody, UpdateBoardBody } from "./types";
+import { AddBoardBody, Params, UpdateBoardBody } from "./types";
 
 export const getAllBoardsThunk = createAsyncThunk(
   "getAllBoards",
-  async (_, thunkApi) => {
+  async (params: Params, thunkApi) => {
+    const { page, limit } = params;
+
     try {
-      const { data } = await kanbanApi.get("boards");
+      const { data } = await kanbanApi.get("boards", {
+        params: {
+          page,
+          limit,
+        },
+      });
 
       return data.data;
     } catch (error) {
