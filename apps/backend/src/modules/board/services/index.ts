@@ -18,7 +18,7 @@ const getAllBoards = async (page = 1, limit = 10) => {
     throw handleCustomError(404, `Boards were not found`);
   }
 
-  return { boards, hasNextPage };
+  return { boards, hasNextPage, totalBoardsCount };
 };
 
 const getById = async (id: string) => {
