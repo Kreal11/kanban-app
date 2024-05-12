@@ -12,6 +12,7 @@ import {
   AddBoardWrapper,
   BoardsList,
   BoardsWrapper,
+  LoadMoreButton,
   NoBoardsPlugWrapper,
 } from "./Home.styled";
 import { useModal } from "../../shared/hooks/useModal";
@@ -84,7 +85,7 @@ const Home = () => {
         </BoardsList>
       )}
       {hasNextPage && !isLoading && (
-        <button onClick={handleLoadMore}>Load more</button>
+        <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
       )}
       {isOpen && (
         <Modal closeModal={closeModal}>
