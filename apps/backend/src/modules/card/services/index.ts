@@ -1,6 +1,7 @@
 import Card from "../model";
 import handleCustomError from "../../../middlewares/helpers/handleCustomError";
 import { ICard } from "../model/types";
+import { CardData } from "./types";
 
 export const getById = async (id: string): Promise<ICard | null> => {
   const card = await Card.findById(id);
@@ -8,7 +9,7 @@ export const getById = async (id: string): Promise<ICard | null> => {
   return card;
 };
 
-export const addCard = async (cardData: any): Promise<ICard> => {
+export const addCard = async (cardData: CardData): Promise<ICard> => {
   const createdCard = await Card.create({ ...cardData });
   if (!createdCard) {
     throw handleCustomError(404, `Card was not created`);
@@ -24,7 +25,7 @@ export const deleteCard = async (id: string): Promise<ICard | null> => {
 
 export const updateCard = async (
   id: string,
-  cardData: any
+  cardData: CardData
 ): Promise<ICard | null> => {
   const updatedCard = await Card.findByIdAndUpdate(id, cardData, {
     new: true,
@@ -35,7 +36,7 @@ export const updateCard = async (
 
 export const updateCardWorkStatus = async (
   id: string,
-  cardData: any
+  cardData: CardData
 ): Promise<ICard | null> => {
   const updatedCardWorkStatus = await Card.findByIdAndUpdate(id, cardData, {
     new: true,
@@ -46,7 +47,7 @@ export const updateCardWorkStatus = async (
 
 export const updateCardOrder = async (
   id: string,
-  cardData: any
+  cardData: CardData
 ): Promise<ICard | null> => {
   const updatedCardOrder = await Card.findByIdAndUpdate(id, cardData, {
     new: true,
