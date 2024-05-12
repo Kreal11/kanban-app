@@ -1,6 +1,7 @@
 import Board from "../model";
 import handleCustomError from "../../../middlewares/helpers/handleCustomError";
 import mongoose from "mongoose";
+import { BoardData } from "./types";
 
 const getAllBoards = async (page = 1, limit = 10) => {
   const totalBoardsCount = await Board.countDocuments();
@@ -43,7 +44,7 @@ const getById = async (id: string) => {
   return result;
 };
 
-const addBoard = async (boardData: any) => {
+const addBoard = async (boardData: BoardData) => {
   const createdBoard = await Board.create({ ...boardData });
   if (!createdBoard) {
     throw handleCustomError(404, `Board was not created`);
@@ -57,7 +58,7 @@ const deleteBoard = async (id: string) => {
   return deletedBoard;
 };
 
-const updateBoard = async (id: string, boardData: any) => {
+const updateBoard = async (id: string, boardData: BoardData) => {
   const updatedBoard = await Board.findByIdAndUpdate(id, boardData, {
     new: true,
   });
