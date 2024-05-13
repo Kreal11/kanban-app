@@ -9,7 +9,7 @@ When navigating to a specific board page (by ID in the search at the top or by c
 Clicking on a specific task displays a separate page with the task's title and full description.
 
 ## Hosting
-The backend of the project is hosted on Render, while the frontend is deployed on Vercel.
+The backend of the project is hosted on Render, while the frontend is deployed on Vercel. The database is created using MongoDB Atlas.
 Please note that the Render hosting uses the free tier, so if there are no requests to it for 10-15 minutes, it may "fall asleep," requiring 1-2 minutes to wake up upon reopening the site.
 
 ## Get Started
