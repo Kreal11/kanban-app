@@ -48,9 +48,7 @@ const Board = () => {
   useEffect(() => {
     dispatch(getBoardByIdThunk(id))
       .unwrap()
-      .then(() => {
-        toast.success("Board info was loaded successfully!");
-      })
+      .then()
       .catch(() => {
         toast.warning("Oops, something went wrong! Try again, please!");
       });

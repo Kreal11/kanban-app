@@ -41,9 +41,7 @@ const Home = () => {
 
     dispatch(getAllBoardsThunk(params))
       .unwrap()
-      .then(() => {
-        toast.success("Boards were loaded successfully!");
-      })
+      .then()
       .catch(() => {
         toast.warning("Oops, something went wrong! Try again, please!");
       });
