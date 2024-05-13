@@ -47,7 +47,7 @@ const Home = () => {
       .catch(() => {
         toast.warning("Oops, something went wrong! Try again, please!");
       });
-  }, [dispatch, currentPage]);
+  }, [dispatch, currentPage, boards.length]);
 
   const handleLoadMore = () => {
     const nextPage = currentPage + 1;
@@ -64,11 +64,11 @@ const Home = () => {
         <BoardsList>
           {(!boards || !boards.length) && (
             <NoBoardsPlugWrapper>
-              <p>There are no boards yet. Add new board to see it there</p>
               <AddBoardWrapper onClick={openModal}>
                 <Svg id="plus" />
                 <p>Add board</p>
               </AddBoardWrapper>
+              <p>There are no boards yet. Add new board to see it there</p>
             </NoBoardsPlugWrapper>
           )}
           {boards.map((board, index) => (

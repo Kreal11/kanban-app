@@ -6,16 +6,12 @@ import { BoardData } from "./types";
 const getAllBoards = async (page = 1, limit = 10) => {
   const totalBoardsCount = await Board.countDocuments();
 
-  if (!totalBoardsCount) {
-    throw handleCustomError(404, `There are no boards in database yet`);
-  }
-
   const skip = (page - 1) * limit;
 
   const boards = await Board.find().skip(skip).limit(limit);
   const hasNextPage = totalBoardsCount > skip + boards.length;
 
-  if (!boards || !boards.length) {
+  if (!boards) {
     throw handleCustomError(404, `Boards were not found`);
   }
 
